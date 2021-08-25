@@ -17,3 +17,7 @@ cliでテストネットに接続
 make start-cli-testnet
 ```
 
+fullnodeの設定ファイル初期化
+```sh
+make init-fullnode
+```

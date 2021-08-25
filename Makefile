@@ -11,8 +11,9 @@ dev-setup:
 start-cli-testnet:
 	cd $(VENDOR_DIR)/diem; ./scripts/cli/start_cli_testnet.sh
 
+#　See: https://developers.diem.com/main/docs/configure-run-public-fullnode
 init-fullnode:
-	cp $(VENDOR_DIR)/config/src/config/test_data/public_full_node.yaml ./
+	cp $(VENDOR_DIR)/diem/config/src/config/test_data/public_full_node.yaml ./
 	curl -L https://testnet.diem.com/genesis.blob --output genesis.blob
 	curl -L https://testnet.diem.com/waypoint.txt --output waypoint.txt
 

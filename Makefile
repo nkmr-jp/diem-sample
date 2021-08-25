@@ -19,3 +19,7 @@ init-fullnode-config:
 
 fullnode-config-example:
 	cat $(VENDOR_DIR)/diem/docker/compose/public_full_node/public_full_node.yaml
+
+start-fullnode:
+	source ~/.cargo/env
+	cd $(VENDOR_DIR)/diem; cargo run -p diem-node --release -- -f ../../public_full_node.yaml

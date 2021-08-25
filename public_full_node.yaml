@@ -5,7 +5,7 @@ base:
     waypoint:
         # Update this value to that which Diem publicly provides. Please regard the directions
         # below on how to safely manage your genesis_file_location with respect to the waypoint.
-        from_file: "./waypoint.txt"
+        from_config: "0:9b23fa936404bb467d78b9f361837c4d39dddd1b74302fb4a4af872937cfa1ff"
 
 execution:
     # Update this to the location to where the genesis.blob is stored, prefer fullpaths

@@ -1,24 +1,27 @@
 base:
     # Update this value to the location you want Diem to store its database
-    data_dir: "/opt/diem/data"
+    data_dir: "./data"
     role: "full_node"
     waypoint:
         # Update this value to that which Diem publicly provides. Please regard the directions
         # below on how to safely manage your genesis_file_location with respect to the waypoint.
-        from_config: "0:01234567890ABCDEFFEDCA098765421001234567890ABCDEFFEDCA0987654210"
+        from_file: "./waypoint.txt"
 
 execution:
     # Update this to the location to where the genesis.blob is stored, prefer fullpaths
     # Note, this must be paired with a waypoint. If you update your waypoint without a
     # corresponding genesis, the file location should be an empty path.
-    genesis_file_location: "/full/path/to/genesis"
+    genesis_file_location: "./genesis.blob"
 
 full_node_networks:
-    - discovery_method: "onchain"
+    - discovery_method: "none"
       # The network must have a listen address to specify protocols. This runs it locally to
       # prevent remote, incoming connections.
       listen_address: "/ip4/127.0.0.1/tcp/6180"
       network_id: "public"
+      seed_addrs:
+        D4C4FB4956D899E55289083F45AC5D84:
+          - "/dns4/fn.testnet.diem.com/tcp/6182/ln-noise-ik/d29d01bed8ab6c30921b327823f7e92c63f8371456fb110256e8c0e8911f4938/ln-handshake/0"
 
 json_rpc:
     # This specifies your JSON-RPC endpoint. This runs locally to prevent remote queries, setting

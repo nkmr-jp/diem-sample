@@ -1,6 +1,7 @@
 # diem-sample
 
 See: https://developers.diem.com/main/docs/tutorial-my-first-transaction
+See: https://developers.diem.com/main/docs/configure-run-public-fullnode
 
 ## 起動
 
@@ -43,4 +44,9 @@ make show-sync-state
 > diem_state_sync_version{type="highest"} 2274720
 > diem_state_sync_version{type="synced"} 1780861
 > diem_state_sync_version{type="target"} 2274720
+```
+
+データ容量を確認する
+```sh
+make show-data-volume
 ```

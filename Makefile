@@ -38,3 +38,33 @@ ROOT_KEY=""
 WAYPOINT=""
 start-local-cli:
 	@cd $(VENDOR_DIR)/diem; cargo run -p cli -- -c TESTING -m $(ROOT_KEY) -u http://127.0.0.1:8080 --waypoint $(WAYPOINT)
+
+
+# See: https://developers.diem.com/main/docs/tutorial-my-first-client
+clone-sdk:
+	@cd $(VENDOR_DIR); git clone https://github.com/diem/my-first-client.git
+
+run-python-sdk-all-examples:
+	@cd $(VENDOR_DIR)/my-first-client; make python
+
+run-my-first-client:
+	@cd $(VENDOR_DIR)/my-first-client/python; pipenv run python src/my_first_client.py
+
+run-generate-keys-example:
+	@cd $(VENDOR_DIR)/my-first-client/python; pipenv run python src/generate_keys_example.py
+
+run-get-account-example:
+	@cd $(VENDOR_DIR)/my-first-client/python; pipenv run python src/get_account_example.py
+
+run-get-events-example:
+	@cd $(VENDOR_DIR)/my-first-client/python; pipenv run python src/get_events_example.py
+
+run-intent-identifier-example:
+	@cd $(VENDOR_DIR)/my-first-client/python; pipenv run python src/intent_identifier_example.py
+
+run-mint-example:
+	@cd $(VENDOR_DIR)/my-first-client/python; pipenv run python src/mint_example.py
+
+run-submit-peer-to-peer-transaction-example:
+	@cd $(VENDOR_DIR)/my-first-client/python; pipenv run python src/submit_peer_to_peer_transaction_example.py
+

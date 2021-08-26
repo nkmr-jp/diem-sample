@@ -8,7 +8,7 @@ clone:
 dev-setup:
 	@cd $(VENDOR_DIR)/diem; ./scripts/dev_setup.sh
 
-start-cli-testnet:
+start-testnet-cli:
 	@cd $(VENDOR_DIR)/diem; ./scripts/cli/start_cli_testnet.sh
 
 #　See: https://developers.diem.com/main/docs/configure-run-public-fullnode
@@ -19,7 +19,7 @@ get-testnet-files:
 show-fullnode-config-example:
 	@cat $(VENDOR_DIR)/diem/docker/compose/public_full_node/public_full_node.yaml
 
-start-fullnode:
+start-testnet-fullnode:
 	@source ~/.cargo/env
 	@cd $(VENDOR_DIR)/diem; cargo run -p diem-node --release -- -f ../../public_full_node.yaml
 
@@ -28,3 +28,13 @@ show-sync-state:
 
 show-data-volume:
 	@du -ghs $(VENDOR_DIR)/diem/data
+
+
+# See: https://developers.diem.com/main/docs/tutorial-run-local-validator-nw
+start-local-network:
+	@cd $(VENDOR_DIR)/diem; cargo run -p diem-node -- --test
+
+ROOT_KEY=""
+WAYPOINT=""
+start-local-cli:
+	@cd $(VENDOR_DIR)/diem; cargo run -p cli -- -c TESTING -m $(ROOT_KEY) -u http://127.0.0.1:8080 --waypoint $(WAYPOINT)

@@ -35,3 +35,12 @@ fullnodeの設定ファイルのExampleを見る(public_full_node.yaml編集時�
 ```sh
 make show-fullnode-config-example
 ```
+
+同期状況を確認する
+```sh
+make show-sync-state
+> diem_state_sync_version{type="committed"} 1697861
+> diem_state_sync_version{type="highest"} 2274720
+> diem_state_sync_version{type="synced"} 1780861
+> diem_state_sync_version{type="target"} 2274720
+```

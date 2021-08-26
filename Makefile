@@ -22,3 +22,6 @@ show-fullnode-config-example:
 start-fullnode:
 	source ~/.cargo/env
 	cd $(VENDOR_DIR)/diem; cargo run -p diem-node --release -- -f ../../public_full_node.yaml
+
+show-sync-state:
+	curl 127.0.0.1:9101/metrics 2> /dev/null | grep diem_state_sync_version | grep type

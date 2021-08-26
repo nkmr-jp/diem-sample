@@ -1,7 +1,8 @@
 # diem-sample
 
-See: https://developers.diem.com/main/docs/tutorial-my-first-transaction
-See: https://developers.diem.com/main/docs/configure-run-public-fullnode
+## 参照
+- [My first transaction](https://developers.diem.com/main/docs/tutorial-my-first-transaction)
+- [Configure and run a public FullNode](https://developers.diem.com/main/docs/configure-run-public-fullnode)
 
 ## 起動
 

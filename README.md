@@ -2,6 +2,8 @@
 
 See: https://developers.diem.com/main/docs/tutorial-my-first-transaction
 
+## 起動
+
 リポジトリ取得
 ```sh
 make clone
@@ -17,7 +19,19 @@ cliでテストネットに接続
 make start-cli-testnet
 ```
 
-fullnodeの設定ファイル初期化
+## Testnet の Fullnodeを起動
+
+testnetのgenesisとwaypointファイル取得
 ```sh
-make init-fullnode
+make get-testnet-files
+```
+
+fullnode起動
+```sh
+make start-fullnode
+```
+
+fullnodeの設定ファイルのExampleを見る(public_full_node.yaml編集時の参考に)
+```sh
+make show-fullnode-config-example
 ```

@@ -33,13 +33,16 @@ show-data-volume:
 
 
 # See: https://developers.diem.com/main/docs/tutorial-run-local-validator-nw
+RUST_LOG=info
+DATA_DIR=./data/local_network
 start-local-network:
-	@cd $(VENDOR_DIR)/diem; cargo run -p diem-node -- --test
+	@cd $(VENDOR_DIR)/diem; RUST_LOG=$(RUST_LOG) cargo run -p diem-node -- --test --config $(DATA_DIR)
 
-ROOT_KEY=""
-WAYPOINT=""
 start-local-cli:
-	@cd $(VENDOR_DIR)/diem; cargo run -p cli -- -c TESTING -m $(ROOT_KEY) -u http://127.0.0.1:8080 --waypoint $(WAYPOINT)
+	@cd $(VENDOR_DIR)/diem; cargo run -p cli -- -c TESTING \
+		-m $(DATA_DIR)/mint.key \
+		-u http://127.0.0.1:8080 \
+		--waypoint $(shell cat $(VENDOR_DIR)/diem/$(DATA_DIR)/waypoint.txt)
 
 
 # See: https://developers.diem.com/main/docs/tutorial-my-first-client

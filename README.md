@@ -50,30 +50,21 @@ make show-data-volume
 
 ## ローカルネットワークを起動
 
-ネットワーク起動(起動のたびに各値は変わる)
+ネットワーク起動
+参考: Log level について [Logging - Coding guidelines](https://developers.diem.com/main/docs/coding-guidelines#logging)
 
 ```sh
-make start-local-network
-
-# > Completed generating configuration:
-# >         Log file: "/private/var/folders/2l/yq_nvwmd4rv14qnn4pswf68c0000gr/T/5640eb797a98f2826aa4cee5f40ece29/validator.log"
-# >         Config path: "/private/var/folders/2l/yq_nvwmd4rv14qnn4pswf68c0000gr/T/5640eb797a98f2826aa4cee5f40ece29/0/node.yaml"
-# >         Diem root key path: "/private/var/folders/2l/yq_nvwmd4rv14qnn4pswf68c0000gr/T/5640eb797a98f2826aa4cee5f40ece29/mint.key"
-# >         Waypoint: 0:ca2c5616ea116c607c4132ba2ea77e64b58fa850d561f763d119f1945d926aa6
-# >         JSON-RPC endpoint: 0.0.0.0:8080
-# >         Stream-RPC enabled!
-# >         FullNode network: /ip4/0.0.0.0/tcp/7180
-# >         ChainId: TESTING
+make start-local-network RUST_LOG=info
 ```
 
 起動したローカルネットワークにCLIで接続
 ```sh
-make start-local-cli ROOT_KEY=[起動時のDiem root key pathの値] WAYPOINT=[起動時のWaypointの値]
+make start-local-cli
 ```
 
 ログを出力
 ```sh
-tail -f [起動時のLog fileの値]
+tail -f ./vendor/diem/data/local_network/validator.log
 ```
 
 # SDKでTestnetに接続

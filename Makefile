@@ -2,8 +2,10 @@ VENDOR_DIR=./vendor
 
 # See: https://developers.diem.com/main/docs/tutorial-my-first-transaction
 clone:
-	@cd $(VENDOR_DIR); git clone https://github.com/diem/diem.git
-	@cd $(VENDOR_DIR)/diem; git checkout testnet
+#	@cd $(VENDOR_DIR); git clone https://github.com/diem/diem.git
+#	@cd $(VENDOR_DIR)/diem; git checkout testnet
+	@cd $(VENDOR_DIR); git clone https://github.com/nkmr-jp/diem.git
+	@cd $(VENDOR_DIR)/diem; git checkout mylog
 
 dev-setup:
 	@cd $(VENDOR_DIR)/diem; ./scripts/dev_setup.sh

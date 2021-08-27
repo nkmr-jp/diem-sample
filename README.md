@@ -14,7 +14,7 @@ make dev-setup
 
 cliでテストネットに接続
 ```sh
-make testnet-cli
+make start-testnet-cli
 ```
 
 ## Testnet の Fullnodeを起動

@@ -50,8 +50,7 @@ make show-data-volume
 
 ## ローカルネットワークを起動
 
-ネットワーク起動
-Log level 参考: [Logging - Coding guidelines](https://developers.diem.com/main/docs/coding-guidelines#logging)
+ネットワーク起動 ( Log level 参考: [Logging - Coding guidelines](https://developers.diem.com/main/docs/coding-guidelines#logging) )
 ```sh
 make start-local-network RUST_LOG=info
 ```
@@ -71,8 +70,7 @@ make start-local-cli
 tail -f ./vendor/diem/data/local_network/validator.log
 ```
 
-JSONログを出力
-jq filter参考: https://jqplay.org/#
+JSONログを出力 ( jq filter参考: https://jqplay.org/# )
 ```sh
 tail -f ./vendor/diem/data/json_logs/*.log | jq -R 'fromjson? | .'
 # > {

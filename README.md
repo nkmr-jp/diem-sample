@@ -52,9 +52,13 @@ make show-data-volume
 
 ネットワーク起動
 参考: Log level について [Logging - Coding guidelines](https://developers.diem.com/main/docs/coding-guidelines#logging)
-
 ```sh
 make start-local-network RUST_LOG=info
+```
+
+データを削除してネットワークを起動
+```sh
+make restart-local-network RUST_LOG=info
 ```
 
 起動したローカルネットワークにCLIで接続

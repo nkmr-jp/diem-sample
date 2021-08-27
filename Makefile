@@ -38,6 +38,10 @@ DATA_DIR=./data/local_network
 start-local-network:
 	@cd $(VENDOR_DIR)/diem; RUST_LOG=$(RUST_LOG) cargo run -p diem-node -- --test --config $(DATA_DIR)
 
+restart-local-network:
+	@rm -r $(VENDOR_DIR)/diem/$(DATA_DIR)
+	@cd $(VENDOR_DIR)/diem; RUST_LOG=$(RUST_LOG) cargo run -p diem-node -- --test --config $(DATA_DIR)
+
 start-local-cli:
 	@cd $(VENDOR_DIR)/diem; cargo run -p cli -- -c TESTING \
 		-m $(DATA_DIR)/mint.key \

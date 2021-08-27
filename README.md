@@ -75,9 +75,21 @@ JSONログを出力
 jq filter参考: https://jqplay.org/#
 ```sh
 tail -f ./vendor/diem/data/json_logs/*.log | jq -R 'fromjson? | .'
+# > {
+# >   "msg": "PROCESS_PROPOSAL",
+# >   "level": "INFO",
+# >   "ts": "2021-08-27T18:04:10.799861+09:00",
+# >   "pid": "77252",
+# >   "location": "https://github.com/nkmr-jp/diem/blob/mylog/consensus/src/round_manager.rs#L597",
+# >   "module": "consensus::round_manager",
+# >   "function": "RoundManager.process_proposal()"
+# > }
+# ...
 
 # 例: locationの要素のみ出力する場合
 tail -f ./vendor/diem/data/json_logs/*.log | jq -R 'fromjson? | .location'
+# > "https://github.com/nkmr-jp/diem/blob/mylog/consensus/src/round_manager.rs#L597"
+# ...
 ````
 
 

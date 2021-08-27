@@ -51,7 +51,7 @@ make show-data-volume
 ## ローカルネットワークを起動
 
 ネットワーク起動
-参考: Log level について [Logging - Coding guidelines](https://developers.diem.com/main/docs/coding-guidelines#logging)
+Log level 参考: [Logging - Coding guidelines](https://developers.diem.com/main/docs/coding-guidelines#logging)
 ```sh
 make start-local-network RUST_LOG=info
 ```
@@ -66,10 +66,20 @@ make restart-local-network RUST_LOG=info
 make start-local-cli
 ```
 
-ログを出力
+デフォルトのログを出力
 ```sh
 tail -f ./vendor/diem/data/local_network/validator.log
 ```
+
+JSONログを出力
+jq filter参考: https://jqplay.org/#
+```sh
+tail -f ./vendor/diem/data/json_logs/*.log | jq -R 'fromjson? | .'
+
+# 例: locationの要素のみ出力する場合
+tail -f ./vendor/diem/data/json_logs/*.log | jq -R 'fromjson? | .location'
+````
+
 
 # SDKでTestnetに接続
 
